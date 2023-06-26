@@ -15,4 +15,10 @@ class LoginPageLocators:
 class SignUpPageLocators:
 
     SIGN_UP_BUTTON = (By.CSS_SELECTOR, "a[href='/register']")
+    EMAIL_INPUT = (By.CSS_SELECTOR, "input[id='login_email']")
+    PASSWORD_INPUT = (By.CSS_SELECTOR, "input[id='login_password']")
+    NODE_RUNNER_RADIO = (By.CSS_SELECTOR, "div[id='role_node_runner']")
+    DEVELOPER_RADIO = (By.CSS_SELECTOR, "div[id='role_developer']")
+    REGISTER_BUTTON = (By.CSS_SELECTOR, "button[id='login_Sign_in']")
+    ERROR_MESSAGE = (By.CSS_SELECTOR, "div[class='ui-text-red subtitle2 ui-mt-1']")
 
