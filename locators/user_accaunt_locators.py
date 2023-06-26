@@ -55,27 +55,14 @@ class NodeRunnerAccountLocators:
 
 class DeveloperLocators:
 
-    MY_PROJECTS_TAB = (By.CSS_SELECTOR, "a[href='developers/projects']")
-    MANAGE_ACCOUNT_TAB = (By.CSS_SELECTOR, "a[href='developers/account']")
-    API_AND_DOCUMENTATION_TAB = (By.CSS_SELECTOR, "a[href='developers/documentation']")
-    BALANCES_TAB = (By.CSS_SELECTOR, "a[href='developers/balances']")
+    MY_PROJECTS_TAB = (By.CSS_SELECTOR, "a[href='/developers/projects']")
+    MANAGE_ACCOUNT_TAB = (By.CSS_SELECTOR, "a[href='/developers/account']")
+    API_AND_DOCUMENTATION_TAB = (By.CSS_SELECTOR, "a[href='/developers/documentation']")
+    BALANCES_TAB = (By.CSS_SELECTOR, "a[href='/developers/balances']")
 
     # My Project tab
 
-    ADD_PROJECT_BUTTON = (By.CSS_SELECTOR, "button[id='Add project']")
-    SEARCH_INPUT = (By.CSS_SELECTOR, "input[name='search']")
-    SORTING_BY_STATUS_BUTTONS = (By.CSS_SELECTOR, "div[role='button']")
-    DELETE_PROJECT_BUTTON = (By.CSS_SELECTOR, "button[class='button ui-flex ui-text-center ui-items-center ui-justify-center ui-ease-in-out ui-duration-150  ui-rounded-[8px] ui-select-none ui-h-auto ui-p-[6px] ui-m-[-6px] hover:ui-bg-white/[.4] active:ui-bg-white/[.8] ui-rounded-full ui-h-[26px]']")
-    PROJECT_STATUS_FIELDS = (By.CSS_SELECTOR, "span[class='ellipsis ui-capitalize']")
-    NUMBER_PROJECT_DETAILS_FIELDS = (By.CSS_SELECTOR, "span[class='ellipsis']")
-    # ADD PROJECT
 
-    PROJECT_NAME_INPUT = (By.CSS_SELECTOR, "input[name='name']")
-    PROJECT_CATEGORY_INPUT = (By.CSS_SELECTOR, "input[name='category']")
-    PROJECT_DESCRIPTION_TEXTAREA = (By.CSS_SELECTOR, "textarea[name='description']")
-    FILE_INPUT = (By.CSS_SELECTOR, "input[multiple type='file']")
-    CANCEL_BUTTON = (By.CSS_SELECTOR, "button[id='CreateProjectModal-Cancel']")
-    UPLOAD_BUTTON = (By.CSS_SELECTOR, "button[id='CreateProjectModal-Upload']")
 
     # Manage Account tab
 

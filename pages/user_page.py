@@ -1,5 +1,6 @@
 from pages.base_page import NextPage
 from locators.user_accaunt_locators import NodeRunnerAccountLocators
+from locators.user_accaunt_locators import DeveloperLocators
 
 
 class NodeRunnerPage(NextPage):
@@ -55,3 +56,14 @@ class NodeRunnerPage(NextPage):
     def off_two_fa(self):
         self.element_is_visible(NodeRunnerAccountLocators.USER_DETAIL).click()
         self.element_is_visible(NodeRunnerAccountLocators.TWO_FA_TOGGLE_ON).click()
+
+
+class DeveloperPage(NextPage):
+
+    def click_on_tab_button(self, tab):
+        tabs = {"my projects": DeveloperLocators.MY_PROJECTS_TAB,
+                "manage account": DeveloperLocators.MANAGE_ACCOUNT_TAB,
+                "api and documentation": DeveloperLocators.API_AND_DOCUMENTATION_TAB,
+                "balances": DeveloperLocators.BALANCES_TAB}
+
+        self.element_is_visible(tabs[tab]).click()

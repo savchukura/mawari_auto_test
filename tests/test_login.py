@@ -10,7 +10,7 @@ class TestCaseNew:
     def test_login_as_node_runner(self, driver):
         login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
         login.open()
-        login.log_in("yura@zpoken.io", "213456qaZ", "node_runner")
+        login.log_in("savcukura866@gmail.com", "213456qaZ", "node_runner")
         login.click_sign_in_button()
         time.sleep(2)
         url = driver.current_url.split("/")[-2]
@@ -20,7 +20,7 @@ class TestCaseNew:
     def test_login_as_developer(self, driver):
         login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
         login.open()
-        login.log_in("yura@zpoken.io", "213456qaZ", "developer")
+        login.log_in("savcukura866@gmail.com", "213456qaZ", "developer")
         login.click_sign_in_button()
         time.sleep(2)
         url = driver.current_url.split("/")[-2]
@@ -30,7 +30,7 @@ class TestCaseNew:
     def test_log_out(self, driver):
         login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
         login.open()
-        login.log_in("yura@zpoken.io", "213456qaZ", "developer")
+        login.log_in("savcukura866@gmail.com", "213456qaZ", "developer")
         login.click_sign_in_button()
         login.log_out()
         time.sleep(2)
@@ -48,7 +48,7 @@ class TestCaseNew:
     def test_leave_password_input_empty(self, driver):
         login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
         login.open()
-        login.log_in("yura@zpoken.io", "", "developer")
+        login.log_in("savcukura866@gmail.com", "", "developer")
         error = login.get_error_message()
         assert error[0].text == "The field password is required", "ERROR message incorrect"
 
@@ -70,7 +70,7 @@ class TestCaseNew:
     def test_fill_not_valid_password(self, driver):
         login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
         login.open()
-        login.log_in("yura@zpoken.io", "213456", "developer")
+        login.log_in("savcukura866@gmail.com", "213456", "developer")
         login.click_sign_in_button()
         error = login.get_error_message()
         assert error[0].text == "Wrong password", "ERROR message incorrect"
@@ -78,7 +78,7 @@ class TestCaseNew:
     def test_fill_not_valid_password_letters_only_in_upper_case(self, driver):
         login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
         login.open()
-        login.log_in("yura@zpoken.io", "213456QAZ", "developer")
+        login.log_in("savcukura866@gmail.com", "213456QAZ", "developer")
         login.click_sign_in_button()
         error = login.get_error_message()
         assert error[0].text == "Wrong password", "ERROR message incorrect"
@@ -86,7 +86,7 @@ class TestCaseNew:
     def test_fill_not_valid_password_letters_only_in_lower_case(self, driver):
         login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
         login.open()
-        login.log_in("yura@zpoken.io", "213456qaz", "developer")
+        login.log_in("savcukura866@gmail.com", "213456qaz", "developer")
         login.click_sign_in_button()
         error = login.get_error_message()
         assert error[0].text == "Wrong password", "ERROR message incorrect"
@@ -94,7 +94,7 @@ class TestCaseNew:
     def test_fill_not_valid_password_fill_space_before_password(self, driver):
         login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
         login.open()
-        login.log_in("yura@zpoken.io", " 213456qaZ", "developer")
+        login.log_in("savcukura866@gmail.com", " 213456qaZ", "developer")
         login.click_sign_in_button()
         error = login.get_error_message()
         assert error[0].text == "Wrong password", "ERROR message incorrect"
@@ -102,7 +102,7 @@ class TestCaseNew:
     def test_fill_not_valid_password_fill_space_after_password(self, driver):
         login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
         login.open()
-        login.log_in("yura@zpoken.io", "213456qaZ  ", "developer")
+        login.log_in("savcukura866@gmail.com", "213456qaZ  ", "developer")
         login.click_sign_in_button()
         error = login.get_error_message()
         assert error[0].text == "Wrong password", "ERROR message incorrect"
@@ -110,7 +110,7 @@ class TestCaseNew:
     def test_fill_not_valid_password_fill_space_in_the_middle_password(self, driver):
         login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
         login.open()
-        login.log_in("yura@zpoken.io", "213456 qaZ", "developer")
+        login.log_in("savcukura866@gmail.com", "213456 qaZ", "developer")
 
         login.click_sign_in_button()
 
@@ -120,7 +120,7 @@ class TestCaseNew:
     def test_fill_not_valid_password_add_one_symbol(self, driver):
         login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
         login.open()
-        login.log_in("yura@zpoken.io", "213456qaZ@", "developer")
+        login.log_in("savcukura866@gmail.com", "213456qaZ@", "developer")
         login.click_sign_in_button()
         error = login.get_error_message()
         assert error[0].text == "Wrong password", "ERROR message incorrect"
