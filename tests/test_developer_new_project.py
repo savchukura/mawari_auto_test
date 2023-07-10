@@ -27,13 +27,17 @@ class TestNewProjectPage:
         add_project_page.add_project_second_modal(Project.GPU, Project.CPU, Project.RAM)
         add_project_page.click_next_button_second()
         # third modal window
-        add_project_page.add_project_third_modal("10")
+        #add_project_page.add_project_third_modal("10")
         add_project_page.click_next_button_second()
         # fourth modal window
-        add_project_page.upload_file(Project.FILE)
+        add_project_page.upload_file(Project.TEST_FILE)
         add_project_page.click_upload_button()
 
+        alert_text = add_project_page.get_alert()
+
         project_name, project_description = add_project_page.get_created_project_data()
+
+        assert alert_text == "Create success"
 
         assert project_name == Project.NAME, "Project name incorrect"
         assert project_description == Project.DESCRIPTION, "Project description incorrect"
@@ -53,7 +57,7 @@ class TestNewProjectPage:
         add_project_page.add_project_second_modal(Project.GPU, Project.CPU, Project.RAM)
         add_project_page.click_next_button_second()
         # third modal window
-        add_project_page.add_project_third_modal("10")
+        #add_project_page.add_project_third_modal("10")
         add_project_page.click_next_button_second()
         # fourth modal window
         add_project_page.upload_file(Project.FILE)

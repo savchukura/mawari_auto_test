@@ -68,6 +68,7 @@ class MyProjectPage(NextPage):
     def click_upload_button(self):
         self.element_is_visible(MyProjectsLocators.UPLOAD_BUTTON).click()
 
+
     def get_created_project_data(self):
         project_names = self.elements_are_visible(MyProjectsLocators.PROJECT_NAME)
         project_name = project_names[1].text
@@ -79,7 +80,7 @@ class MyProjectPage(NextPage):
         self.element_is_visible(MyProjectsLocators.DELETE_PROJECT_BUTTON).click()
 
     def get_alert(self):
-        alert_text = self.element_is_visible(MyProjectsLocators.ALERT).text
+        alert_text = self.element_is_visible(MyProjectsLocators.ALERT, 50).text
         return alert_text
 
     def search_input(self, search):

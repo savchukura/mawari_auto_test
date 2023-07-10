@@ -12,6 +12,7 @@ class Project:
     CPU = random.choice(["1-4", "5-8", "9-16", "16+"])
     RAM = random.choice(["8-16", "17-32", "33-64", "64+"])
 
-    FILE = os.path.abspath("../tests/files/test_file.txt")
+    FILE = os.path.abspath("../tests/files/test_file.zip")
+    TEST_FILE = os.path.abspath("../tests/files/17.zip")
 
     NAME_FOR_SEARCH = f"project{random.randint(1, 999)}"
