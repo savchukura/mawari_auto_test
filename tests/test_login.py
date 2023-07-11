@@ -5,7 +5,7 @@ from pages.user_page import NodeRunnerPage
 from pages.two_fa_page import TwoFA
 
 
-class TestCaseNew:
+class TestLogInPage:
 
     def test_login_as_node_runner(self, driver):
         login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
@@ -139,7 +139,6 @@ class TestCaseNew:
         url = driver.current_url.split("/")[-1]
         assert url == "login", "User Doesn't do log out"
         time.sleep(2)
-
 
 
 

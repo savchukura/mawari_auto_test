@@ -3,6 +3,7 @@ import requests
 import json
 from pages.login_page import LoginPage
 from pages.user_page import NodeRunnerPage
+from api.activities import GetAccessToken, GetUser, Wallets
 
 
 class TestCaseNew:
@@ -31,25 +32,29 @@ class TestCaseNew:
         time.sleep(2)
 
     def test_auth(self):
-        data = {
-            'email': 'glib@zpoken.io',
-            'password': '12345678',
-            'returnSecureToken': True
-        }
-        response_one = requests.post(
-            url='https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyA_hu8mFWnFC3huZ_hctQiA3Q918PAbnBo',
-            data=json.dumps(data))
-        #ssprint(response_one.text)
-        time.sleep(3)
-        data = {
-            'idToken': response_one.json()['idToken'],
-            'fingerprint': '7f16ce8a1738428678922bb80cf1b5b1478da0b3',
-            'role': 'node_runner'
-        }
-        headers = {"Content-Type": "application/json"}
-        #response = requests.post(url="https://dev-mawari.zpoken.dev/api/v1/auth", data=json.dumps(data), headers=headers)
-        res = json.loads(requests.post(url="https://dev-mawari.zpoken.dev/api/v1/auth", json=data, headers=headers).text)
+        get_token = GetAccessToken()
+        user_id, token = get_token.get_access_token_and_user_id()
 
-        token = res['tokens']['access_token']
-        #print(response.text)
-        print(token)
+        user = GetUser()
+        user_data = user.get_user_data(token, user_id)
+        print(user_id)
+
+    def test_admin_auth(self):
+        get_admin_token = GetAccessToken()
+        admin_token = get_admin_token.get_admin_access_token()
+        print(admin_token)
+
+    def test_get_user_data(self):
+        get_admin_token = GetAccessToken()
+        admin_token = get_admin_token.get_admin_access_token()
+
+        user = GetUser()
+        user_data = user.get_user_data(admin_token, 429)
+
+    def test_top_up_wallet(self):
+        get_token = GetAccessToken()
+        user_id, token = get_token.get_access_token_and_user_id()
+
+        wallets = Wallets()
+        top_up = wallets.top_up(token, 22, 100)
+
