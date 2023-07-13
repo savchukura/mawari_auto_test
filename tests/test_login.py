@@ -1,6 +1,6 @@
 import time
 
-from pages.login_page import LoginPage
+from pages.login_page import LoginPage, UserPersonalPage
 from pages.user_page import NodeRunnerPage
 from pages.two_fa_page import TwoFA
 
@@ -139,6 +139,187 @@ class TestLogInPage:
         url = driver.current_url.split("/")[-1]
         assert url == "login", "User Doesn't do log out"
         time.sleep(2)
+
+
+class TestChangePassword:
+
+    def test_change_password_use_only_digit_valid_data(self, driver):
+        password_before = '213456qaZ'
+        new_password = '12345678'
+        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login.open()
+        login.log_in("savcukura866@gmail.com", password_before, "node_runner")
+        time.sleep(0.5)
+        login.click_sign_in_button()
+
+        change_password_page = UserPersonalPage(driver)
+        change_password_page.click_on_user_personal_button()
+        change_password_page.click_on_change_password_button_on_page()
+        change_password_page.fill_password_fields(password_before, new_password, new_password)
+        change_password_page.click_on_change_in_modal_button()
+        alert_text = change_password_page.get_alert_text()
+
+        assert alert_text == 'Password changed'
+
+        login.log_out()
+
+        login.log_in("savcukura866@gmail.com", new_password, "node_runner")
+        time.sleep(0.5)
+        login.click_sign_in_button()
+
+        change_password_page.return_password(new_password, password_before, password_before)
+        alert_text = change_password_page.get_alert_text()
+
+        assert alert_text == 'Password changed'
+        time.sleep(2)
+
+    def test_change_password_use_only_letters_valid_data(self, driver):
+        password_before = '213456qaZ'
+        new_password = 'qwertyui'
+        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login.open()
+        login.log_in("savcukura866@gmail.com", password_before, "node_runner")
+        time.sleep(0.5)
+        login.click_sign_in_button()
+
+        change_password_page = UserPersonalPage(driver)
+        change_password_page.click_on_user_personal_button()
+        change_password_page.click_on_change_password_button_on_page()
+        change_password_page.fill_password_fields(password_before, new_password, new_password)
+        change_password_page.click_on_change_in_modal_button()
+        alert_text = change_password_page.get_alert_text()
+
+        assert alert_text == 'Password changed'
+
+        login.log_out()
+
+        login.log_in("savcukura866@gmail.com", new_password, "node_runner")
+        time.sleep(0.5)
+        login.click_sign_in_button()
+
+        change_password_page.return_password(new_password, password_before, password_before)
+        alert_text = change_password_page.get_alert_text()
+
+        assert alert_text == 'Password changed'
+        time.sleep(2)
+
+    def test_change_password_use_letters_and_digits_valid_data(self, driver):
+        password_before = '213456qaZ'
+        new_password = '123789zAq'
+        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login.open()
+        login.log_in("savcukura866@gmail.com", password_before, "node_runner")
+        time.sleep(0.5)
+        login.click_sign_in_button()
+
+        change_password_page = UserPersonalPage(driver)
+        change_password_page.click_on_user_personal_button()
+        change_password_page.click_on_change_password_button_on_page()
+        change_password_page.fill_password_fields(password_before, new_password, new_password)
+        change_password_page.click_on_change_in_modal_button()
+        alert_text = change_password_page.get_alert_text()
+
+        assert alert_text == 'Password changed'
+
+        login.log_out()
+
+        login.log_in("savcukura866@gmail.com", new_password, "node_runner")
+        time.sleep(0.5)
+        login.click_sign_in_button()
+
+        change_password_page.return_password(new_password, password_before, password_before)
+        alert_text = change_password_page.get_alert_text()
+
+        assert alert_text == 'Password changed'
+        time.sleep(2)
+
+    def test_change_password_leave_old_password_input_empty_invalid_data(self, driver):
+        password_before = '213456qaZ'
+        new_password = '123789zAq'
+        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login.open()
+        login.log_in("savcukura866@gmail.com", password_before, "node_runner")
+        time.sleep(0.5)
+        login.click_sign_in_button()
+
+        change_password_page = UserPersonalPage(driver)
+        change_password_page.click_on_user_personal_button()
+        change_password_page.click_on_change_password_button_on_page()
+        change_password_page.fill_password_fields('', new_password, new_password)
+        error_message = change_password_page.get_error()
+
+        assert error_message == "Password is required"
+
+    def test_change_password_leave_new_password_input_empty_invalid_data(self, driver):
+        password_before = '213456qaZ'
+        new_password = '123789zAq'
+        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login.open()
+        login.log_in("savcukura866@gmail.com", password_before, "node_runner")
+        time.sleep(0.5)
+        login.click_sign_in_button()
+
+        change_password_page = UserPersonalPage(driver)
+        change_password_page.click_on_user_personal_button()
+        change_password_page.click_on_change_password_button_on_page()
+        change_password_page.fill_password_fields(password_before, '', new_password)
+        error_message = change_password_page.get_error()
+
+        assert error_message == "New password is required"
+
+    def test_change_password_leave_confirm_new_password_input_empty_invalid_data(self, driver):
+        password_before = '213456qaZ'
+        new_password = '123789zAq'
+        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login.open()
+        login.log_in("savcukura866@gmail.com", password_before, "node_runner")
+        time.sleep(0.5)
+        login.click_sign_in_button()
+
+        change_password_page = UserPersonalPage(driver)
+        change_password_page.click_on_user_personal_button()
+        change_password_page.click_on_change_password_button_on_page()
+        change_password_page.fill_password_fields(password_before, new_password, '')
+        change_password_page.click_tab_key_on_input()
+        error_message = change_password_page.get_error()
+
+        assert error_message == "Confirm password is required"
+
+    def test_change_password_enter_wrong_old_password_invalid_data(self, driver):
+        password_before = '213456qaZ'
+        new_password = '123789zAq'
+        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login.open()
+        login.log_in("savcukura866@gmail.com", password_before, "node_runner")
+        time.sleep(0.5)
+        login.click_sign_in_button()
+
+        change_password_page = UserPersonalPage(driver)
+        change_password_page.click_on_user_personal_button()
+        change_password_page.click_on_change_password_button_on_page()
+        change_password_page.fill_password_fields('123456789', new_password, new_password)
+        change_password_page.click_on_change_in_modal_button()
+        error_message = change_password_page.get_error()
+
+        assert error_message == "Wrong password"
+
+    def test_change_password_new_password_not_equal_to_confirm_invalid_data(self, driver):
+        password_before = '213456qaZ'
+        new_password = '123789zAq'
+        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login.open()
+        login.log_in("savcukura866@gmail.com", password_before, "node_runner")
+        time.sleep(0.5)
+        login.click_sign_in_button()
+
+        change_password_page = UserPersonalPage(driver)
+        change_password_page.click_on_user_personal_button()
+        change_password_page.click_on_change_password_button_on_page()
+        change_password_page.fill_password_fields(password_before, new_password, 'qWe123456')
+        change_password_page.click_tab_key_on_input()
+        error_message = change_password_page.get_error()
+
+        assert error_message == "Passwords must match"
 
 
 
