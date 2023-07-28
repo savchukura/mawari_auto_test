@@ -1,5 +1,6 @@
 from locators.developer.my_projects_locators import MyProjectsLocators
 from pages.base_page import NextPage
+from datetime import datetime
 
 
 class MyProjectPage(NextPage):
@@ -68,16 +69,55 @@ class MyProjectPage(NextPage):
     def click_upload_button(self):
         self.element_is_visible(MyProjectsLocators.UPLOAD_BUTTON).click()
 
-
     def get_created_project_data(self):
         project_names = self.elements_are_visible(MyProjectsLocators.PROJECT_NAME)
-        project_name = project_names[1].text
+        project_name = project_names[0].text
         project_descriptions = self.elements_are_visible(MyProjectsLocators.PROJECT_DESCRIPTION)
         project_description = project_descriptions[0].text
         return project_name, project_description
 
+    def get_created_project_id(self):
+        project_ids = self.elements_are_visible(MyProjectsLocators.PROJECT_ID)
+        project_id = project_ids[0].text
+        return project_id
+
+    def get_created_project_name(self):
+        project_names = self.elements_are_visible(MyProjectsLocators.PROJECT_NAME)
+        project_name = project_names[0].text
+        return project_name
+
+    def get_created_project_project_status(self):
+        project_statuses = self.elements_are_visible(MyProjectsLocators.PROJECT_STATUS_FIELDS)
+        project_status = project_statuses[0].text
+        return project_status
+
+    def get_created_project_project_date(self):
+        project_dates = self.elements_are_visible(MyProjectsLocators.PROJECT_DATE)
+        project_date = project_dates[2].text
+        return project_date
+
+    def get_created_project_project_description(self):
+        project_descriptions = self.elements_are_visible(MyProjectsLocators.PROJECT_DESCRIPTION)
+        project_description = project_descriptions[0].text
+        return project_description
+
+    def get_all_project_data(self):
+        project_ids = self.elements_are_visible(MyProjectsLocators.PROJECT_ID)
+        project_id = project_ids[0].text
+        project_names = self.elements_are_visible(MyProjectsLocators.PROJECT_NAME)
+        project_name = project_names[0].text
+        project_statuses = self.elements_are_visible(MyProjectsLocators.PROJECT_STATUS_FIELDS)
+        project_status = project_statuses[0].text
+        project_dates = self.elements_are_visible(MyProjectsLocators.PROJECT_DATE)
+        project_date = project_dates[2].text
+        project_descriptions = self.elements_are_visible(MyProjectsLocators.PROJECT_DESCRIPTION)
+        project_description = project_descriptions[0].text
+        data = [project_id, project_name, project_status, project_date, project_description]
+        return data
+
     def delete_project(self):
-        self.element_is_visible(MyProjectsLocators.DELETE_PROJECT_BUTTON).click()
+        delete = self.elements_are_visible(MyProjectsLocators.DELETE_PROJECT_BUTTON)
+        delete[1].click()
 
     def get_alert(self):
         alert_text = self.element_is_visible(MyProjectsLocators.ALERT, 50).text
@@ -86,8 +126,15 @@ class MyProjectPage(NextPage):
     def search_input(self, search):
         self.element_is_visible(MyProjectsLocators.SEARCH_INPUT).send_keys(search)
 
-    def get_project_status(self):
-        project_status = self.element_is_visible(MyProjectsLocators.PROJECT_STATUS_FIELDS).text
-        return project_status
+    def get_current_date(self):
+        # Get the current date and time
+        current_date_time = datetime.now()
 
+        # Extract the current date (year, month, day)
+        current_date = current_date_time.date()
+
+        # Format the date if needed (optional)
+        formatted_date = current_date.strftime("%Y-%m-%d")
+
+        return formatted_date
 

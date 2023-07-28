@@ -8,7 +8,7 @@ class TestSignUpPage:
         sign_up = SignUpPage(driver, "https://dev-mawari.zpoken.dev/login")
         sign_up.open()
         sign_up.click_on_sign_up_button()
-        sign_up.fill_email_and_password_inputs('testemail@gmail.com', '12345678', 'developer')
+        sign_up.fill_email_and_password_inputs('testemail111@gmail.com', '12345678', 'developer')
         sign_up.click_register_button()
         time.sleep(5)
 
@@ -33,9 +33,8 @@ class TestSignUpPage:
         sign_up.open()
         sign_up.click_on_sign_up_button()
         sign_up.fill_email_and_password_inputs('testemail@gmail.com', '123', 'developer')
-        sign_up.click_register_button()
         error_message = sign_up.get_error_message()
-        assert error_message == "Password should be at least 6 characters", "invalid error message"
+        assert error_message == "password must be at least 6 characters", "invalid error message"
 
     def test_sign_up_user_enter_email_without_at(self, driver):
         sign_up = SignUpPage(driver, "https://dev-mawari.zpoken.dev/login")

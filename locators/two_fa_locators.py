@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 
 class TwoFaLocators:
 
-    USER_DETAIL = (By.CSS_SELECTOR, "p[class='subtitle2 ui-uppercase ellipsis']")
+    USER_DETAIL = (By.CSS_SELECTOR, "p[class='subtitle2 ellipsis']")
     TWO_FA_TOGGLE = (By.CSS_SELECTOR,
                      "div[class='ui-w-[29px] ui-h-[14px] ui-rounded-[16px] ui-relative ui-bg-[#B6B4B5] ui-cursor-pointer']")
     TWO_FA_TOGGLE_ON = (By.CSS_SELECTOR,
@@ -18,11 +18,12 @@ class TwoFaLocators:
     VERIFY_INPUT_FOUR = (By.CSS_SELECTOR, "input[aria-label='Please enter OTP character 4']")
     VERIFY_INPUT_FIVE = (By.CSS_SELECTOR, "input[aria-label='Please enter OTP character 5']")
     VERIFY_INPUT_SIX = (By.CSS_SELECTOR, "input[aria-label='Please enter OTP character 6']")
+    ERROR_MESSAGE = (By.CSS_SELECTOR, "p[class='ui-text-red ui-mt-1.5 subtitle3']")
 
     VERIFY_CODE_BUTTON = (By.CSS_SELECTOR, "button[id='continue-twofa-modal']")
 
     VERIFY_TWO_FA_AFTER_LOGIN = (By.CSS_SELECTOR, "button[id='Verify_totp']")
 
-    VERIFY_TWO_FA_DELETE = (By.CSS_SELECTOR, "button[id='Verify_totp']")
+    VERIFY_TWO_FA_DELETE = (By.CSS_SELECTOR, "button[id='verify_code_modal']")
 
     VALIDATION_ALERT = (By.CSS_SELECTOR, "div[role='alert']")

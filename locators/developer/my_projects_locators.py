@@ -7,10 +7,11 @@ class MyProjectsLocators:
     SORTING_BY_STATUS_BUTTONS = (By.CSS_SELECTOR, "div[role='button']")
     DELETE_PROJECT_BUTTON = (By.CSS_SELECTOR,
                              "button[class='button ui-flex ui-text-center ui-items-center ui-justify-center ui-ease-in-out ui-duration-150  ui-rounded-[8px] ui-select-none ui-h-auto ui-p-[6px] ui-m-[-6px] hover:ui-bg-white/[.4] active:ui-bg-white/[.8] ui-rounded-full ui-h-[26px]']")
-    PROJECT_STATUS_FIELDS = (By.CSS_SELECTOR, "span[class='ellipsis ui-capitalize']")
 
-    #PROJECT_NAME = (By.XPATH, "//span[@class='ellipsis']")
+    PROJECT_ID = (By.CSS_SELECTOR, "td[class='ui-text-left']")
     PROJECT_NAME = (By.CSS_SELECTOR, "td[class='ui-text-center']")
+    PROJECT_STATUS_FIELDS = (By.CSS_SELECTOR, "span[class='ellipsis ui-capitalize']")
+    PROJECT_DATE = (By.CSS_SELECTOR, "td[class='ui-text-center']")
     PROJECT_DESCRIPTION = (By.CSS_SELECTOR, "td[class='ui-w-[50%]']")
     ALERT = (By.CSS_SELECTOR, "div[role='alert']")
 

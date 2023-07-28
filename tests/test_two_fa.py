@@ -7,17 +7,15 @@ from pages.two_fa_page import TwoFA
 
 class TestTwoFa:
 
-    def test_check_two_fa_on(self, driver):
+    def test_check_two_fa_on_valid_data(self, driver):
         login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
         login.open()
-        login.log_in("chronicletest103@gmail.com", "213456qaZ", "node_runner")
+        login.log_in("yura@zpoken.io", "213456qaZ", "node_runner")
         login.click_sign_in_button()
 
         get_totp = TwoFA(driver)
         totp = get_totp.totp()
-
-        token_code = TwoFA(driver)
-        token_first = token_code.get_two_fa_code(totp)
+        token_first = get_totp.get_two_fa_code(totp)
         x = [int(a) for a in str(token_first)]
         one = x[0]
         two = x[1]
@@ -29,33 +27,40 @@ class TestTwoFa:
         get_totp.verify_totp_code(one, two, three, four, five, six)
         get_totp.verify_totp_before_login()
 
+        alert = get_totp.get_alert()
+        assert alert == "2FA is successfully set", "Two FA code didn't reset"
+        time.sleep(2)
         login.log_out()
 
-        login.log_in("chronicletest103@gmail.com", "213456qaZ", "node_runner")
+        login.log_in("yura@zpoken.io", "213456qaZ", "node_runner")
         login.click_sign_in_button()
 
         get_totp.verify_totp_code(one, two, three, four, five, six)
         get_totp.verify_totp_after_login()
 
-        time.sleep(1)
-        url = driver.current_url.split("/")[-2]
-        assert url == "developers", "User log in under wrong role"
-
         get_totp.off_two_fa()
         get_totp.verify_totp_code(one, two, three, four, five, six)
         get_totp.verify_code_delete()
 
-        #assert alert == "2FA has been reset", "Two FA code didn't reset"
+        alert = get_totp.get_alert()
+        assert alert == "2FA has been reset", "Two FA code didn't reset"
         time.sleep(1)
-        url = driver.current_url.split("/")[-1]
-        assert url == "login", "User Doesn't do log out"
 
-    def test_get_all_users(self):
-        url = 'https://dev-mn-admin.zpoken.dev/api/v1/users'
-        r = requests.get(url=url)
-        print(r.status_code)
+    def test_check_two_fa_enter_wrong_totp_on(self, driver):
+        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login.open()
+        login.log_in("yura@zpoken.io", "213456qaZ", "node_runner")
+        login.click_sign_in_button()
 
-    def test_delete_user(self):
-        url = 'https://dev.catlabs.zpoken.io/api/v1/users/167'
-        r = requests.delete(url=url)
-        print(r.text)
+        get_totp = TwoFA(driver)
+        get_totp.totp()
+
+        get_totp.continue_fa_button()
+        get_totp.verify_totp_code('1', '2', '3', '4', '5', '6')
+        get_totp.verify_totp_before_login()
+        error_message = get_totp.get_error()
+        assert error_message == 'TOTP is invalid'
+
+
+
+
