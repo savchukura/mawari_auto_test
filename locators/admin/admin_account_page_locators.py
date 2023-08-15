@@ -22,7 +22,8 @@ class AdminAccountPageLocators:
 
     # Projects Tab locators
     FIRST_APPROVE_BUTTON = (By.CSS_SELECTOR, "button[class='button ui-flex ui-text-center ui-items-center ui-justify-center ui-ease-in-out ui-duration-150  ui-rounded-[8px] ui-select-none ui-text-white ui-bg-btnDef hover:ui-bg-btnHover active:ui-bg-btnActive disabled:ui-bg-btnDisable ui-h-[26px] ui-w-full']")
-    FIRST_DECLINE_BUTTON = (By.CSS_SELECTOR, "button[class='button ui-flex ui-text-center ui-items-center ui-justify-center ui-ease-in-out ui-duration-150  ui-rounded-[8px] ui-select-none ui-text-black hover:ui-text-white ui-border-btnDef ui-bg-transparent hover:ui-bg-btnHover active:ui-bg-btnActive disabled:ui-border-btnDisable ui-h-[26px] ui-border-[2px] ui-w-full']")
-
+    FIRST_DECLINE_BUTTON = (By.CSS_SELECTOR, "button[class='button ui-flex ui-text-center ui-items-center ui-justify-center ui-ease-in-out ui-duration-150  ui-rounded-[8px] ui-select-none ui-text-black hover:ui-text-white ui-border-btnDef ui-bg-transparent hover:ui-bg-btnHover active:ui-bg-btnActive disabled:ui-border-btnDisable ui-h-[26px] ui-w-full ui-border-[2px]")
+    CONFIRM_DOWNLOAD_BUTTON = (By.CSS_SELECTOR, "button[class='button ui-flex ui-text-center ui-items-center ui-justify-center ui-ease-in-out ui-duration-150  ui-rounded-[8px] ui-select-none ui-h-auto ui-p-[6px] ui-m-[-6px] hover:ui-bg-white/[.4] active:ui-bg-white/[.8] ui-rounded-full ui-h-[44px]']")
+    DOWNLOAD_BUTTON = (By.XPATH, "//a[@download]")
     # XR developers tab locators
 

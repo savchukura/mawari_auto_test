@@ -1,6 +1,8 @@
 from locators.developer.my_projects_locators import MyProjectsLocators
 from pages.base_page import NextPage
 from datetime import datetime
+import time
+import random
 
 
 class MyProjectPage(NextPage):
@@ -94,7 +96,7 @@ class MyProjectPage(NextPage):
     def get_created_project_project_date(self):
         project_dates = self.elements_are_visible(MyProjectsLocators.PROJECT_DATE)
         project_date = project_dates[2].text
-        return project_date
+        return project_date.split(' ')[1]
 
     def get_created_project_project_description(self):
         project_descriptions = self.elements_are_visible(MyProjectsLocators.PROJECT_DESCRIPTION)
@@ -134,7 +136,29 @@ class MyProjectPage(NextPage):
         current_date = current_date_time.date()
 
         # Format the date if needed (optional)
-        formatted_date = current_date.strftime("%Y-%m-%d")
+        formatted_date = current_date.strftime("%d.%m.%Y")
 
         return formatted_date
+
+    def get_project_uploading_progress_in_percent(self):
+        time.sleep(1)
+        upload_progress_in_percent_before = self.element_is_visible(MyProjectsLocators.PROGRESS_STATUS_BY_PERCENT).text
+        time.sleep(random.randint(2, 5))
+        upload_progress_in_percent_after = self.element_is_visible(
+            MyProjectsLocators.PROGRESS_STATUS_BY_PERCENT).text
+        return upload_progress_in_percent_before.replace('%', ''), upload_progress_in_percent_after.replace('%', '')
+
+    def get_project_uploading_progress_bar(self):
+        time.sleep(1)
+        upload_progress_in_percent_before = self.element_is_visible(MyProjectsLocators.PROGRESS_STATUS_BAR).get_attribute('style')
+        time.sleep(random.randint(2, 5))
+        upload_progress_in_percent_after = self.element_is_visible(
+            MyProjectsLocators.PROGRESS_STATUS_BAR).get_attribute('style')
+        return upload_progress_in_percent_before, upload_progress_in_percent_after
+
+    def update_project(self, file_path):
+        update = self.elements_are_visible(MyProjectsLocators.DELETE_PROJECT_BUTTON)
+        update[0].click()
+        self.element_is_present(MyProjectsLocators.FILE_INPUT).send_keys(file_path)
+        self.element_is_visible(MyProjectsLocators.UPLOAD_BUTTON).click()
 

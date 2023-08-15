@@ -14,5 +14,9 @@ class Project:
 
     FILE = os.path.abspath("../tests/files/test_file.zip")
     TEST_FILE = os.path.abspath("../tests/files/17.zip")
+    TEST_FILE_70 = os.path.abspath("../tests/files/test_app_70.zip")
+
+    UPDATE_FILE_ONE = os.path.abspath("../tests/files/file_for_update_one.zip")
+    UPDATE_FILE_TWO = os.path.abspath("../tests/files/file_for_update_two.zip")
 
     NAME_FOR_SEARCH = f"project{random.randint(1, 999)}"

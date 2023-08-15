@@ -5,6 +5,8 @@ class MyProjectsLocators:
     ADD_PROJECT_BUTTON = (By.CSS_SELECTOR, "button[id='Add project']")
     SEARCH_INPUT = (By.CSS_SELECTOR, "input[name='search']")
     SORTING_BY_STATUS_BUTTONS = (By.CSS_SELECTOR, "div[role='button']")
+    UPDATE_PROJECT_BUTTON = (By.CSS_SELECTOR,
+                             "button[class='button ui-flex ui-text-center ui-items-center ui-justify-center ui-ease-in-out ui-duration-150  ui-rounded-[8px] ui-select-none ui-h-auto ui-p-[6px] ui-m-[-6px] hover:ui-bg-white/[.4] active:ui-bg-white/[.8] ui-rounded-full ui-h-[26px]']")
     DELETE_PROJECT_BUTTON = (By.CSS_SELECTOR,
                              "button[class='button ui-flex ui-text-center ui-items-center ui-justify-center ui-ease-in-out ui-duration-150  ui-rounded-[8px] ui-select-none ui-h-auto ui-p-[6px] ui-m-[-6px] hover:ui-bg-white/[.4] active:ui-bg-white/[.8] ui-rounded-full ui-h-[26px]']")
 
@@ -63,3 +65,10 @@ class MyProjectsLocators:
     FILE_INPUT = (By.XPATH, "//input[@tabindex='-1']")
     UPLOAD_BUTTON = (By.CSS_SELECTOR, "button[id='CreateProjectModal-Upload']")
     FILE_NAME = (By.CSS_SELECTOR, "p[class='subtitle2 ui-text-center']")
+
+    # Create Project Uploading menu
+
+    PROGRESS_STATUS_BY_PERCENT = (By.CSS_SELECTOR, "p[class='subtitle3']")
+    PROGRESS_STATUS_BAR = (By.CSS_SELECTOR, "div[class='border-purple relative h-1 overflow-hidden rounded-[4px] border']")
+
+

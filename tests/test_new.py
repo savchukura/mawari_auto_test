@@ -1,12 +1,17 @@
 import time
 import requests
 import json
-
+import shutil
 from pages.developer_pages.my_project_page import MyProjectPage
 from pages.login_page import LoginPage
 from pages.user_page import NodeRunnerPage
 from api.activities import GetAccessToken, GetUser, Wallets
 from tests.data_for_tests import Project
+from conftest import *
+import zipfile
+import os
+import base64
+import random
 
 
 class TestCaseNew:
@@ -101,3 +106,60 @@ class TestCaseNew:
         current_date = add_project_page.get_current_date()
         print(current_date)
 
+    def test_open_zip(self):
+        # zip file handler
+        zip = zipfile.ZipFile(os.path.abspath("../tests/files/test_file.zip"))
+
+        # list available files in the container
+        print(zip.namelist())
+
+    def test_download_files(self):
+        link = "https://dev-mawari.zpoken.dev/p-download/871574335_files.zip"
+        link_b = base64.b64decode(link)
+        path_name_file = os.path.abspath(f"../tests/files/test{random.randint(0, 999)}.zip")
+
+        zip = zipfile.ZipFile(path_name_file)
+
+        # list available files in the container
+        print(zip.namelist())
+
+        with open(path_name_file, 'wb+') as f:
+            offset = link_b.find(b'\xff\xd8')
+            f.write(link_b[offset:])
+            check_file = os.path.exists(path_name_file)
+            f.close()
+        zip = zipfile.ZipFile(path_name_file)
+
+        # list available files in the container
+        print(zip.namelist())
+        os.remove(path_name_file)
+        #return check_file
+
+    def test_download(self):
+        try:
+            # Send a GET request to the URL to download the zip file
+            response = requests.get("https://dev-mawari.zpoken.dev/p-download/871574335_files.zip", stream=True)
+            response.raise_for_status()
+
+            # Extract the filename from the URL
+            file_name = "https://dev-mawari.zpoken.dev/p-download/871574335_files.zip".split('/')[-1]
+
+            # Create the save folder if it doesn't exist
+            #os.makedirs(f"../tests/files", exist_ok=True)
+
+            # Save the zip file to the specified folder
+            save_path = os.path.join(f"../tests/files", file_name)
+            with open(save_path, 'wb') as file:
+                for chunk in response.iter_content(chunk_size=8192):
+                    file.write(chunk)
+
+            print(f"Zip file downloaded and saved to: {save_path}")
+            zip = zipfile.ZipFile(os.path.abspath("../tests/files/test_file.zip"))
+
+            # list available files in the container
+            print(zip.namelist())
+            os.remove(save_path)
+        except requests.exceptions.RequestException as e:
+            print(f"Error downloading the zip file: {e}")
+        except Exception as e:
+            print(f"An error occurred: {e}")
