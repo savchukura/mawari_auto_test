@@ -7,7 +7,7 @@ class RewardsPage(NextPage):
 
     def check_balance(self):
         balance = self.element_is_visible(RewardsPageLocators.BALANCE_FIELD).text
-        return balance.replace("$", '')
+        return balance.replace("$", '').replace(',', '')
 
     def click_on_withdraw_button_on_page(self):
         self.element_is_visible(RewardsPageLocators.WITHDRAW_BUTTON).click()

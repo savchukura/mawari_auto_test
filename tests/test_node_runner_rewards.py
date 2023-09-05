@@ -26,7 +26,8 @@ class TestRewardsPage:
         rewards_page = RewardsPage(driver)
         balance_before_withdraw = rewards_page.check_balance()
         rewards_page.click_on_withdraw_button_on_page()
-        amount_for_withdraw = float(balance_before_withdraw) / 2
+        #amount_for_withdraw = float(balance_before_withdraw) / 2
+        amount_for_withdraw = 50
         rewards_page.fill_amount_field(amount_for_withdraw)
         time.sleep(1)
         rewards_page.click_on_withdraw_button_in_modal()

@@ -8,7 +8,7 @@ class BalancePage(NextPage):
 
     def get_balance_count(self):
         balance = self.element_is_visible(BalancePageLocators.BALANCE_COUNT).text
-        return balance.replace("$", '')
+        return balance.replace("$", '').replace(",", "")
 
     def click_on_deposit_button(self):
         self.element_is_visible(BalancePageLocators.DEPOSIT_BUTTON).click()
