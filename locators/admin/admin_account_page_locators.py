@@ -11,7 +11,7 @@ class AdminAccountPageLocators:
     XR_DEVELOPERS_LIST_TAB = (By.CSS_SELECTOR, "a[href='/developers']")
 
     # Dashboard locators
-
+    DASHBOARD_TITLE = (By.CSS_SELECTOR, "div[class='mb-10 flex items-center justify-between'] span[class='text-purple']")
     # ADMINS TAB Locators
     ADD_ADMIN_BUTTON = (By.CSS_SELECTOR, "button[if='add_admin_btn']")
     EMAIL_INPUT = (By.CSS_SELECTOR, "input[id='new_admin_email']")
@@ -27,3 +27,5 @@ class AdminAccountPageLocators:
     DOWNLOAD_BUTTON = (By.XPATH, "//a[@download]")
     # XR developers tab locators
 
+    # log out
+    LOG_OUT_BUTTON = (By.CSS_SELECTOR, "button[id='user_logout']")

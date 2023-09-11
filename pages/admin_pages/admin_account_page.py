@@ -12,6 +12,11 @@ import shutil
 
 class AdminAccountPage(NextPage):
 
+    # Dashboard
+    def get_dashboard_title(self):
+        dashboard_title_text = self.element_is_visible(AdminAccountPageLocators.DASHBOARD_TITLE)
+        return dashboard_title_text.text
+
     def click_side_menu_tab(self, tab):
         side_menu_tabs = {"dashboard tab": AdminAccountPageLocators.DASHBOARD_TAB,
                           "admins tab": AdminAccountPageLocators.ADMINS_TAB,
@@ -19,6 +24,9 @@ class AdminAccountPage(NextPage):
                           "project tab": AdminAccountPageLocators.PROJECTS_TAB,
                           "developers tab": AdminAccountPageLocators.XR_DEVELOPERS_LIST_TAB}
         self.element_is_visible(side_menu_tabs[tab]).click()
+
+    def click_log_out_button(self):
+        self.element_is_clickable(AdminAccountPageLocators.LOG_OUT_BUTTON).click()
 
     # Project tab
 

@@ -10,7 +10,7 @@ from pages.user_page import NodeRunnerPage, DeveloperPage
 from pages.developer_pages.my_project_page import MyProjectPage
 from pages.admin_pages.admin_login_page import AdminLoginPage
 from pages.admin_pages.admin_account_page import AdminAccountPage
-from conftest import *
+#from conftest import *
 
 
 @allure.feature('Create New Project')
@@ -353,7 +353,8 @@ class TestNewProjectPage:
 
         admin_login = AdminLoginPage(driver, "https://dev-mn-admin.zpoken.dev/login")
         admin_login.open()
-        admin_login.admin_login()
+        admin_login.login_enter_email_and_password('alex+i@zpoken.io', '12345678')
+        admin_login.login_click_sign_in_button()
 
         admin_account = AdminAccountPage(driver)
         admin_account.click_side_menu_tab("project tab")
@@ -373,7 +374,8 @@ class TestNewProjectPage:
 
         admin_login = AdminLoginPage(driver, "https://dev-mn-admin.zpoken.dev/login")
         admin_login.open()
-        admin_login.admin_login()
+        admin_login.login_enter_email_and_password('alex+i@zpoken.io', '12345678')
+        admin_login.login_click_sign_in_button()
 
         admin_account = AdminAccountPage(driver)
         admin_account.click_side_menu_tab("project tab")
@@ -412,7 +414,8 @@ class TestNewProjectPage:
 
         admin_login = AdminLoginPage(driver, "https://dev-mn-admin.zpoken.dev/login")
         admin_login.open()
-        admin_login.admin_login()
+        admin_login.login_enter_email_and_password('alex+i@zpoken.io', '12345678')
+        admin_login.login_click_sign_in_button()
 
         admin_account = AdminAccountPage(driver)
         admin_account.click_side_menu_tab("project tab")
