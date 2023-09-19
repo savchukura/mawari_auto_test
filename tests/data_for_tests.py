@@ -16,6 +16,7 @@ class Project:
     FILE = os.path.abspath("../tests/files/test_file.zip")
     TEST_FILE = os.path.abspath("../tests/files/17.zip")
     REL_PATH = os.path.abspath(os.path.join(os.path.abspath(os.curdir), "tests/files/17.zip"))
+    TEST_FILE_70 = os.path.abspath('../tests/files/test_app_70.zip')
     TEST_FILE_PATH = os.path.abspath('../mawari_auto_test/tests/files/17.zip')
     UPDATE_FILE_ONE = os.path.abspath("../tests/files/file_for_update_one.zip")
     UPDATE_FILE_TWO = os.path.abspath("../tests/files/file_for_update_two.zip")

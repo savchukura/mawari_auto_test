@@ -33,6 +33,24 @@ class MyProjectPage(NextPage):
                        "us": MyProjectsLocators.US_REGION,
                        "asia": MyProjectsLocators.ASIA_REGION}
             self.element_is_visible(regions[region]).click()
+
+        with allure.step('Select Country'):
+            country_drop = self.elements_are_visible(MyProjectsLocators.CATEGORY_DROP)
+            country_drop[2].click()
+            countries = self.elements_are_present(MyProjectsLocators.COUNTRY)
+            #countries_count = len(countries)
+            #country = countries[random.randint(0, countries_count)].click()
+            countries[2].click()
+
+        with allure.step('Select State'):
+            state_drop = self.elements_are_visible(MyProjectsLocators.CATEGORY_DROP)
+            state_drop[3].click()
+            states = self.elements_are_present(MyProjectsLocators.COUNTRY)
+            #states_count = len(states)
+            #self.go_to_element(states[10])
+            #state = states[random.randint(0, states_count - 1)].click()
+            states[1].click()
+
         with allure.step('Fill Description'):
             self.element_is_visible(MyProjectsLocators.DESCRIPTION_TEXT_AREA).send_keys(description)
 
@@ -70,6 +88,11 @@ class MyProjectPage(NextPage):
                         "33-64": MyProjectsLocators.RAM_33_64,
                         "64+": MyProjectsLocators.RAM_64}
             self.element_is_visible(ram_drop[ram]).click()
+
+        with allure.step('Select Simultaneous Users'):
+            simulation_users_input = self.element_is_visible(MyProjectsLocators.SIMULATIONS_USERS)
+            self.action_double_click(simulation_users_input)
+            simulation_users_input.send_keys(random.randint(1, 100))
 
     @allure.step('click Next Button on Second Modal')
     def click_next_button_second(self):

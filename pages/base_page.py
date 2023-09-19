@@ -2,6 +2,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from datetime import datetime
 from conftest import *
+from selenium.webdriver import ActionChains
 
 
 class BasePage:
@@ -81,5 +82,10 @@ class NextPage:
 
     def click_back_browser(self):
         self.driver.back()
+
+    def action_double_click(self, element):
+        action = ActionChains(self.driver)
+        action.double_click(element)
+        action.perform()
 
 

@@ -36,6 +36,9 @@ class MyProjectsLocators:
 
     REGION = (By.CSS_SELECTOR, "div[class='h2 border-grey hover:bg-lightgrey border-b-[1px] px-[10px] py-[6px]']")
 
+    COUNTRY = (By.CSS_SELECTOR, "div[class='h2 border-grey hover:bg-lightgrey border-b-[1px] px-[10px] py-[6px]']")
+    STATE = (By.CSS_SELECTOR, "div[class='h2 border-grey hover:bg-lightgrey border-b-[1px] px-[10px] py-[6px] bg-lightgrey']")
+
     DESCRIPTION_TEXT_AREA = (By.CSS_SELECTOR, "textarea[id='project_description']")
     NEXT_BUTTON = (By.CSS_SELECTOR, "button[id='CreateProjectModal-Next']")
     CANCEL_BUTTON = (By.CSS_SELECTOR, "button[id='CreateProjectModal-Cancel']")
@@ -62,6 +65,8 @@ class MyProjectsLocators:
 
     NEXT_BUTTON_SECOND = (By.CSS_SELECTOR, "button[id='SystemRequirementsForm-Next']")
     BACK_BUTTON = (By.CSS_SELECTOR, "button[id='SystemRequirementsForm-Back']")
+
+    SIMULATIONS_USERS = (By.CSS_SELECTOR, "input[id='create_project_users_count']")
 
     # create project third modal
 
