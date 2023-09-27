@@ -56,8 +56,8 @@ class NodeRunnerAccountLocators:
 class DeveloperLocators:
 
     MY_PROJECTS_TAB = (By.CSS_SELECTOR, "a[href='/developers/projects']")
-    MANAGE_ACCOUNT_TAB = (By.CSS_SELECTOR, "a[href='/developers/account']")
-    API_AND_DOCUMENTATION_TAB = (By.CSS_SELECTOR, "a[href='/developers/documentation']")
+    STREAMS_TAB = (By.CSS_SELECTOR, "a[href='/developers/streams']")
+    WALLET_TAB = (By.CSS_SELECTOR, "a[href='/developers/wallet']")
     BALANCES_TAB = (By.CSS_SELECTOR, "a[href='/developers/balances']")
 
     # My Project tab

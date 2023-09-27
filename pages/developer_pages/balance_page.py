@@ -7,7 +7,7 @@ from locators.developer.balance_page_locators import BalancePageLocators
 class BalancePage(NextPage):
 
     def get_balance_count(self):
-        balance = self.element_is_visible(BalancePageLocators.BALANCE_COUNT).text
+        balance = self.element_is_visible(BalancePageLocators.BALANCE_COUNT, 15).text
         return balance.replace("$", '').replace(",", "")
 
     def click_on_deposit_button(self):
@@ -33,3 +33,13 @@ class BalancePage(NextPage):
     def get_amount_input_text(self):
         amount_input_text = self.element_is_visible(BalancePageLocators.DEPOSIT_INPUT).get_attribute('value')
         return amount_input_text
+
+    def stripe(self, email, card_number, mm_yy, cvc, holder_name):
+        self.element_is_visible(BalancePageLocators.EMAIL_INPUT).send_keys(email)
+        #self.element_is_visible(BalancePageLocators.CARD_BUTTON).click()
+        self.element_is_visible(BalancePageLocators.CARD_NUMBER_INPUT).send_keys(card_number)
+        self.element_is_visible(BalancePageLocators.MM_YY).send_keys(mm_yy)
+        self.element_is_visible(BalancePageLocators.CVC).send_keys(cvc)
+        self.element_is_visible(BalancePageLocators.CARD_HOLDER_NAME_INPUT).send_keys(holder_name)
+
+        self.element_is_visible(BalancePageLocators.PAY_BUTTON).click()
