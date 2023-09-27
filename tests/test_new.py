@@ -163,3 +163,9 @@ class TestCaseNew:
             print(f"Error downloading the zip file: {e}")
         except Exception as e:
             print(f"An error occurred: {e}")
+
+    def test_url(self):
+        env_name = 'prod'
+        login_url = Project()
+        url = login_url.user_url(env_name)
+        print(url)

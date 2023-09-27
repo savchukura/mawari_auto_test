@@ -4,7 +4,7 @@ from datetime import datetime
 from pages.developer_pages.balance_page import BalancePage
 from pages.login_page import LoginPage
 import os
-from tests.data_for_tests import Project
+from tests.data_for_tests import Project, Url
 import allure
 from pages.user_page import NodeRunnerPage, DeveloperPage
 from pages.developer_pages.my_project_page import MyProjectPage
@@ -17,7 +17,7 @@ from pages.admin_pages.admin_account_page import AdminAccountPage
 class TestNewProjectPage:
     @allure.title('Create Project valid data')
     def test_add_new_project_valid_data_check_creating_project(self, driver):
-        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login = LoginPage(driver, Url.USER_URL)
         login.open()
         login.log_in("savcukura866@gmail.com", "213456qaZ", "developer")
         login.click_sign_in_button()
@@ -49,7 +49,7 @@ class TestNewProjectPage:
 
     @allure.title('Create Project On-Demand off')
     def test_add_new_project_on_demand_off_valid_data(self, driver):
-        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login = LoginPage(driver, Url.USER_URL)
         login.open()
         login.log_in("savcukura866@gmail.com", "213456qaZ", "developer")
         login.click_sign_in_button()
@@ -89,7 +89,7 @@ class TestNewProjectPage:
 
     @allure.title('Check Project ID after Creating')
     def test_add_new_project_check_project_id_valid_data(self, driver):
-        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login = LoginPage(driver, Url.USER_URL)
         login.open()
         login.log_in("savcukura866@gmail.com", "213456qaZ", "developer")
         login.click_sign_in_button()
@@ -117,7 +117,7 @@ class TestNewProjectPage:
 
     @allure.title('Check Project name after creating')
     def test_add_new_project_check_project_name_valid_data(self, driver):
-        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login = LoginPage(driver, Url.USER_URL)
         login.open()
         login.log_in("savcukura866@gmail.com", "213456qaZ", "developer")
         login.click_sign_in_button()
@@ -145,7 +145,7 @@ class TestNewProjectPage:
 
     @allure.title('Check Project status after creating')
     def test_add_new_project_check_project_status_valid_data(self, driver):
-        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login = LoginPage(driver, Url.USER_URL)
         login.open()
         login.log_in("savcukura866@gmail.com", "213456qaZ", "developer")
         login.click_sign_in_button()
@@ -173,7 +173,7 @@ class TestNewProjectPage:
 
     @allure.title('Check Project status after creating')
     def test_add_new_project_check_project_region_valid_data(self, driver):
-        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login = LoginPage(driver, Url.USER_URL)
         login.open()
         login.log_in("savcukura866@gmail.com", "213456qaZ", "developer")
         login.click_sign_in_button()
@@ -200,7 +200,7 @@ class TestNewProjectPage:
 
     @allure.title('Check Project Created date after creating')
     def test_add_new_project_check_project_created_date_valid_data(self, driver):
-        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login = LoginPage(driver, Url.USER_URL)
         login.open()
         login.log_in("savcukura866@gmail.com", "213456qaZ", "developer")
         login.click_sign_in_button()
@@ -230,7 +230,7 @@ class TestNewProjectPage:
 
     @allure.title('Check Project Details After Creating')
     def test_add_new_project_check_project_details_valid_data(self, driver):
-        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login = LoginPage(driver, Url.USER_URL)
         login.open()
         login.log_in("savcukura866@gmail.com", "213456qaZ", "developer")
         login.click_sign_in_button()
@@ -258,7 +258,7 @@ class TestNewProjectPage:
 
     @allure.title('Check upload progress in %')
     def test_add_new_project_check_upload_progress_in_percent_valid_data(self, driver):
-        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login = LoginPage(driver, Url.USER_URL)
         login.open()
         login.log_in("savcukura866@gmail.com", "213456qaZ", "developer")
         login.click_sign_in_button()
@@ -283,7 +283,7 @@ class TestNewProjectPage:
 
     @allure.title('Cher Upload progres bar')
     def test_add_new_project_check_upload_progress_bar_valid_data(self, driver):
-        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login = LoginPage(driver, Url.USER_URL)
         login.open()
         login.log_in("savcukura866@gmail.com", "213456qaZ", "developer")
         login.click_sign_in_button()
@@ -317,7 +317,7 @@ class TestNewProjectPage:
 
     @allure.title('Check Search Project')
     def test_check_search(self, driver):
-        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login = LoginPage(driver, Url.USER_URL)
         login.open()
         login.log_in("savcukura866@gmail.com", "213456qaZ", "developer")
         login.click_sign_in_button()
@@ -351,7 +351,7 @@ class TestNewProjectPage:
     def test_check_project_status_after_admin_approve_project(self, driver):
         self.test_add_new_project_valid_data_check_creating_project(driver)
 
-        admin_login = AdminLoginPage(driver, "https://dev-mn-admin.zpoken.dev/login")
+        admin_login = AdminLoginPage(driver, Url.ADMIN_URL)
         admin_login.open()
         admin_login.login_enter_email_and_password('alex+i@zpoken.io', '12345678')
         admin_login.login_click_sign_in_button()
@@ -360,7 +360,7 @@ class TestNewProjectPage:
         admin_account.click_side_menu_tab("project tab")
         admin_account.click_on_approve_button()
 
-        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login = LoginPage(driver, Url.USER_URL)
         login.open()
 
         add_project_page = MyProjectPage(driver)
@@ -372,7 +372,7 @@ class TestNewProjectPage:
     def test_check_project_status_after_admin_decline_project(self, driver):
         self.test_add_new_project_valid_data_check_creating_project(driver)
 
-        admin_login = AdminLoginPage(driver, "https://dev-mn-admin.zpoken.dev/login")
+        admin_login = AdminLoginPage(driver, Url.ADMIN_URL)
         admin_login.open()
         admin_login.login_enter_email_and_password('alex+i@zpoken.io', '12345678')
         admin_login.login_click_sign_in_button()
@@ -381,7 +381,7 @@ class TestNewProjectPage:
         admin_account.click_side_menu_tab("project tab")
         admin_account.click_on_decline_button()
 
-        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login = LoginPage(driver, Url.USER_URL)
         login.open()
 
         add_project_page = MyProjectPage(driver)
@@ -391,7 +391,7 @@ class TestNewProjectPage:
 
     @allure.title('Update Project File')
     def test_update_project(self, driver):
-        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login = LoginPage(driver, Url.USER_URL)
         login.open()
         login.log_in("savcukura866@gmail.com", "213456qaZ", "developer")
         login.click_sign_in_button()
@@ -412,7 +412,7 @@ class TestNewProjectPage:
 
         add_project_page.get_alert()
 
-        admin_login = AdminLoginPage(driver, "https://dev-mn-admin.zpoken.dev/login")
+        admin_login = AdminLoginPage(driver, Url.ADMIN_URL)
         admin_login.open()
         admin_login.login_enter_email_and_password('alex+i@zpoken.io', '12345678')
         admin_login.login_click_sign_in_button()
@@ -425,13 +425,13 @@ class TestNewProjectPage:
         print(project_file_before)
         admin_account.remove_file(file_path)
 
-        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login = LoginPage(driver, Url.USER_URL)
         login.open()
         time.sleep(1)
         add_project_page.update_project(Project.UPDATE_FILE_TWO)
         add_project_page.get_alert()
         time.sleep(2)
-        admin_login = AdminLoginPage(driver, "https://dev-mn-admin.zpoken.dev/login")
+        admin_login = AdminLoginPage(driver, Url.ADMIN_URL)
         admin_login.open()
 
         admin_account = AdminAccountPage(driver)

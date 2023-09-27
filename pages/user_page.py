@@ -25,7 +25,6 @@ class NodeRunnerPage(NextPage):
         self.element_is_visible(NodeRunnerAccountLocators.TWO_FA_TOGGLE).click()
         totp_code = self.element_is_visible(NodeRunnerAccountLocators.TOTP_CODE)
 
-
         return totp_code.text
 
     def continue_fa_button(self):

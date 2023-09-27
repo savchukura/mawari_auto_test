@@ -2,6 +2,7 @@ import allure
 from generator.generator import generated_person
 from pages.sign_up_page import SignUpPage
 import time
+from tests.data_for_tests import Url
 
 
 @allure.feature("Sign up")
@@ -9,7 +10,7 @@ class TestSignUpPage:
 
     @allure.title('Sign up as Node runner valid data')
     def test_sign_up_node_runner_account_valid_data(self, driver):
-        sign_up = SignUpPage(driver, "https://dev-mawari.zpoken.dev/login")
+        sign_up = SignUpPage(driver, Url.USER_URL)
         sign_up.open()
         sign_up.user_role("node_runner")
         sign_up.click_on_sign_up_button()
@@ -23,7 +24,7 @@ class TestSignUpPage:
 
     @allure.title('Sign up as Developer valid data')
     def test_sign_up_developer_account_valid_data(self, driver):
-        sign_up = SignUpPage(driver, "https://dev-mawari.zpoken.dev/login")
+        sign_up = SignUpPage(driver, Url.USER_URL)
         sign_up.open()
         sign_up.user_role("developer")
         sign_up.click_on_sign_up_button()
@@ -37,7 +38,7 @@ class TestSignUpPage:
 
     @allure.title('Sign up as Validator valid data')
     def test_sign_up_validator_account_valid_data(self, driver):
-        sign_up = SignUpPage(driver, "https://dev-mawari.zpoken.dev/login")
+        sign_up = SignUpPage(driver, Url.USER_URL)
         sign_up.open()
         sign_up.user_role("validator")
         sign_up.click_on_sign_up_button()
@@ -51,7 +52,7 @@ class TestSignUpPage:
 
     @allure.title('Leave email input empty')
     def test_sign_up_user_leave_email_input_empty(self, driver):
-        sign_up = SignUpPage(driver, "https://dev-mawari.zpoken.dev/login")
+        sign_up = SignUpPage(driver, Url.USER_URL)
         sign_up.open()
         sign_up.user_role("node_runner")
         sign_up.click_on_sign_up_button()
@@ -61,7 +62,7 @@ class TestSignUpPage:
 
     @allure.title('Leave password input Empty')
     def test_sign_up_user_leave_password_input_empty(self, driver):
-        sign_up = SignUpPage(driver, "https://dev-mawari.zpoken.dev/login")
+        sign_up = SignUpPage(driver, Url.USER_URL)
         sign_up.open()
         sign_up.user_role("node_runner")
         sign_up.click_on_sign_up_button()
@@ -72,7 +73,7 @@ class TestSignUpPage:
 
     @allure.title('Fill week password')
     def test_sign_up_user_enter_week_password(self, driver):
-        sign_up = SignUpPage(driver, "https://dev-mawari.zpoken.dev/login")
+        sign_up = SignUpPage(driver, Url.USER_URL)
         sign_up.open()
         sign_up.user_role("node_runner")
         sign_up.click_on_sign_up_button()
@@ -83,7 +84,7 @@ class TestSignUpPage:
 
     @allure.title("Fill Email without @")
     def test_sign_up_user_enter_email_without_at(self, driver):
-        sign_up = SignUpPage(driver, "https://dev-mawari.zpoken.dev/login")
+        sign_up = SignUpPage(driver, Url.USER_URL)
         sign_up.open()
         sign_up.user_role("node_runner")
         sign_up.click_on_sign_up_button()

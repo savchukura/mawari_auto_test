@@ -3,6 +3,7 @@ from pages.user_page import NodeRunnerPage
 from pages.login_page import LoginPage
 from pages.node_runner_pages.rewards_page import RewardsPage
 from api.activities import GetAccessToken, Wallets
+from tests.data_for_tests import Url
 
 
 class TestRewardsPage:
@@ -15,7 +16,7 @@ class TestRewardsPage:
         wallets.top_up(token, 22, 100)
         # Execute test
         # Login
-        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login = LoginPage(driver, Url.USER_URL)
         login.open()
         login.log_in("savcukura866@gmail.com", "213456qaZ", "node_runner")
         login.click_sign_in_button()
@@ -45,7 +46,7 @@ class TestRewardsPage:
         wallets.top_up(token, 22, 100)
         # Execute test
         # Login
-        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login = LoginPage(driver, Url.USER_URL)
         login.open()
         login.log_in("savcukura866@gmail.com", "213456qaZ", "node_runner")
         login.click_sign_in_button()
@@ -74,7 +75,7 @@ class TestRewardsPage:
         wallets.top_up(token, 22, 100)
         # Execute test
         # Login
-        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login = LoginPage(driver, Url.USER_URL)
         login.open()
         login.log_in("savcukura866@gmail.com", "213456qaZ", "node_runner")
         login.click_sign_in_button()
@@ -102,7 +103,7 @@ class TestRewardsPage:
         wallets.top_up(token, 22, 100)
         # Execute test
         # Login
-        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login = LoginPage(driver, Url.USER_URL)
         login.open()
         login.log_in("savcukura866@gmail.com", "213456qaZ", "node_runner")
         login.click_sign_in_button()
@@ -128,7 +129,7 @@ class TestRewardsPage:
         wallets.top_up(token, 22, 10)
         # Execute test
         # Login
-        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login = LoginPage(driver, Url.USER_URL)
         login.open()
         login.log_in("savcukura866@gmail.com", "213456qaZ", "node_runner")
         login.click_sign_in_button()
@@ -151,7 +152,7 @@ class TestRewardsPage:
         wallets.top_up(token, 22, 10)
         # Execute test
         # Login
-        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login = LoginPage(driver, Url.USER_URL)
         login.open()
         login.log_in("savcukura866@gmail.com", "213456qaZ", "node_runner")
         login.click_sign_in_button()
@@ -176,7 +177,7 @@ class TestRewardsPage:
         wallets.top_up(token, 22, 10)
         # Execute test
         # Login
-        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login = LoginPage(driver, Url.USER_URL)
         login.open()
         login.log_in("savcukura866@gmail.com", "213456qaZ", "node_runner")
         login.click_sign_in_button()
@@ -200,7 +201,7 @@ class TestRewardsPage:
         wallets.top_up(token, 22, 10)
         # Execute test
         # Login
-        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login = LoginPage(driver, Url.USER_URL)
         login.open()
         login.log_in("savcukura866@gmail.com", "213456qaZ", "node_runner")
         login.click_sign_in_button()
@@ -222,7 +223,7 @@ class TestRewardsPage:
         wallets.top_up(token, 22, 10)
         # Execute test
         # Login
-        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login = LoginPage(driver, Url.USER_URL)
         login.open()
         login.log_in("savcukura866@gmail.com", "213456qaZ", "node_runner")
         login.click_sign_in_button()

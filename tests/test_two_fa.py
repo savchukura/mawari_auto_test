@@ -1,14 +1,14 @@
 import time
 import requests
 from pages.login_page import LoginPage
-
+from tests.data_for_tests import Url
 from pages.two_fa_page import TwoFA
 
 
 class TestTwoFa:
 
     def test_check_two_fa_on_valid_data(self, driver):
-        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login = LoginPage(driver, Url.USER_URL)
         login.open()
         login.log_in("yura@zpoken.io", "213456qaZ", "node_runner")
         login.click_sign_in_button()
@@ -47,7 +47,7 @@ class TestTwoFa:
         time.sleep(1)
 
     def test_check_two_fa_enter_wrong_totp_on(self, driver):
-        login = LoginPage(driver, "https://dev-mawari.zpoken.dev/login")
+        login = LoginPage(driver, Url.USER_URL)
         login.open()
         login.log_in("yura@zpoken.io", "213456qaZ", "node_runner")
         login.click_sign_in_button()

@@ -2,6 +2,7 @@ from pages.admin_pages.admin_login_page import AdminLoginPage
 from pages.admin_pages.admin_account_page import AdminAccountPage
 import allure
 import time
+from tests.data_for_tests import Url
 
 
 @allure.suite('Admin account tests')
@@ -12,7 +13,7 @@ class TestAdminAccount:
 
         @allure.title('Check Node runners count')
         def test_check_node_runners_count(self, driver):
-            admin_login = AdminLoginPage(driver, "https://dev-mn-admin.zpoken.dev/login")
+            admin_login = AdminLoginPage(driver, Url.ADMIN_URL)
             admin_login.open()
             admin_login.login_enter_email_and_password('alex+i@zpoken.io', '12345678')
             admin_login.login_click_sign_in_button()
@@ -27,7 +28,7 @@ class TestAdminAccount:
 
         @allure.title('Check navigate from dashboard to node runners tab')
         def test_check_navigate_to_node_runners_page(self, driver):
-            admin_login = AdminLoginPage(driver, "https://dev-mn-admin.zpoken.dev/login")
+            admin_login = AdminLoginPage(driver, Url.ADMIN_URL)
             admin_login.open()
             admin_login.login_enter_email_and_password('alex+i@zpoken.io', '12345678')
             admin_login.login_click_sign_in_button()
@@ -39,7 +40,7 @@ class TestAdminAccount:
 
         @allure.title('Check Nodes count')
         def test_check_nodes_count(self, driver):
-            admin_login = AdminLoginPage(driver, "https://dev-mn-admin.zpoken.dev/login")
+            admin_login = AdminLoginPage(driver, Url.ADMIN_URL)
             admin_login.open()
             admin_login.login_enter_email_and_password('alex+i@zpoken.io', '12345678')
             admin_login.login_click_sign_in_button()
@@ -54,7 +55,7 @@ class TestAdminAccount:
 
         @allure.title('Check navigate from dashboard to nodes tab')
         def test_check_navigate_to_nodes_page(self, driver):
-            admin_login = AdminLoginPage(driver, "https://dev-mn-admin.zpoken.dev/login")
+            admin_login = AdminLoginPage(driver, Url.ADMIN_URL)
             admin_login.open()
             admin_login.login_enter_email_and_password('alex+i@zpoken.io', '12345678')
             admin_login.login_click_sign_in_button()
@@ -66,7 +67,7 @@ class TestAdminAccount:
 
         @allure.title('Check Node runners balances')
         def test_check_node_runners_balances(self, driver):
-            admin_login = AdminLoginPage(driver, "https://dev-mn-admin.zpoken.dev/login")
+            admin_login = AdminLoginPage(driver, Url.ADMIN_URL)
             admin_login.open()
             admin_login.login_enter_email_and_password('alex+i@zpoken.io', '12345678')
             admin_login.login_click_sign_in_button()
@@ -81,7 +82,7 @@ class TestAdminAccount:
 
         @allure.title('Check XR DEVELOPERS count')
         def test_check_xr_developers_count(self, driver):
-            admin_login = AdminLoginPage(driver, "https://dev-mn-admin.zpoken.dev/login")
+            admin_login = AdminLoginPage(driver, Url.ADMIN_URL)
             admin_login.open()
             admin_login.login_enter_email_and_password('alex+i@zpoken.io', '12345678')
             admin_login.login_click_sign_in_button()
@@ -96,7 +97,7 @@ class TestAdminAccount:
 
         @allure.title('Check navigate from dashboard to Xr developers list tab')
         def test_check_navigate_to_developers_page(self, driver):
-            admin_login = AdminLoginPage(driver, "https://dev-mn-admin.zpoken.dev/login")
+            admin_login = AdminLoginPage(driver, Url.ADMIN_URL)
             admin_login.open()
             admin_login.login_enter_email_and_password('alex+i@zpoken.io', '12345678')
             admin_login.login_click_sign_in_button()
@@ -108,7 +109,7 @@ class TestAdminAccount:
 
         @allure.title('Check Projects count')
         def test_check_projects_count(self, driver):
-            admin_login = AdminLoginPage(driver, "https://dev-mn-admin.zpoken.dev/login")
+            admin_login = AdminLoginPage(driver, Url.ADMIN_URL)
             admin_login.open()
             admin_login.login_enter_email_and_password('alex+i@zpoken.io', '12345678')
             admin_login.login_click_sign_in_button()
@@ -123,7 +124,7 @@ class TestAdminAccount:
 
         @allure.title('Check Developers balances')
         def test_check_developers_balances(self, driver):
-            admin_login = AdminLoginPage(driver, "https://dev-mn-admin.zpoken.dev/login")
+            admin_login = AdminLoginPage(driver, Url.ADMIN_URL)
             admin_login.open()
             admin_login.login_enter_email_and_password('alex+i@zpoken.io', '12345678')
             admin_login.login_click_sign_in_button()
@@ -139,7 +140,7 @@ class TestAdminAccount:
 
         @allure.title('Check Streams count')
         def test_check_streams_count(self, driver):
-            admin_login = AdminLoginPage(driver, "https://dev-mn-admin.zpoken.dev/login")
+            admin_login = AdminLoginPage(driver, Url.ADMIN_URL)
             admin_login.open()
             admin_login.login_enter_email_and_password('alex+i@zpoken.io', '12345678')
             admin_login.login_click_sign_in_button()

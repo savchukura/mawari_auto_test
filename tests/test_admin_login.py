@@ -2,6 +2,7 @@ from pages.admin_pages.admin_login_page import AdminLoginPage
 from pages.admin_pages.admin_account_page import AdminAccountPage
 import allure
 import time
+from tests.data_for_tests import Url
 
 
 @allure.feature("Admin sign in")
@@ -9,7 +10,7 @@ class TestAdminLogin:
 
     @allure.title("Check Admin login use valid data")
     def test_admin_login_valid_data(self, driver):
-        admin_login = AdminLoginPage(driver, "https://dev-mn-admin.zpoken.dev/login")
+        admin_login = AdminLoginPage(driver, Url.ADMIN_URL)
         admin_login.open()
         admin_login.login_enter_email_and_password('alex+i@zpoken.io', '12345678')
         admin_login.login_click_sign_in_button()
@@ -20,7 +21,7 @@ class TestAdminLogin:
 
     @allure.title("Check Admin log out use valid data")
     def test_admin_login_valid_data(self, driver):
-        admin_login = AdminLoginPage(driver, "https://dev-mn-admin.zpoken.dev/login")
+        admin_login = AdminLoginPage(driver, Url.ADMIN_URL)
         admin_login.open()
         admin_login.login_enter_email_and_password('alex+i@zpoken.io', '12345678')
         admin_login.login_click_sign_in_button()
@@ -33,7 +34,7 @@ class TestAdminLogin:
 
     @allure.title("Check error message if the user enter invalid email")
     def test_user_use_not_registered_email_invalid_data(self, driver):
-        admin_login = AdminLoginPage(driver, "https://dev-mn-admin.zpoken.dev/login")
+        admin_login = AdminLoginPage(driver, Url.ADMIN_URL)
         admin_login.open()
         admin_login.login_enter_email_and_password('testemail9999@zpoken.io', '12345678')
         admin_login.login_click_sign_in_button()
@@ -44,7 +45,7 @@ class TestAdminLogin:
 
     @allure.title("Check error message if the user enter valid email without @")
     def test_user_use_not_registered_email_invalid_data(self, driver):
-        admin_login = AdminLoginPage(driver, "https://dev-mn-admin.zpoken.dev/login")
+        admin_login = AdminLoginPage(driver, Url.ADMIN_URL)
         admin_login.open()
         admin_login.login_enter_email_and_password('alex+izpoken.io', '12345678')
 
@@ -54,7 +55,7 @@ class TestAdminLogin:
 
     @allure.title("Check error message if the user leave email input empty ")
     def test_user_use_not_registered_email_invalid_data(self, driver):
-        admin_login = AdminLoginPage(driver, "https://dev-mn-admin.zpoken.dev/login")
+        admin_login = AdminLoginPage(driver, Url.ADMIN_URL)
         admin_login.open()
         admin_login.login_enter_email_and_password('', '12345678')
 
@@ -64,7 +65,7 @@ class TestAdminLogin:
 
     @allure.title("Check error message if the user leave password input empty ")
     def test_user_use_not_registered_email_invalid_data(self, driver):
-        admin_login = AdminLoginPage(driver, "https://dev-mn-admin.zpoken.dev/login")
+        admin_login = AdminLoginPage(driver, Url.ADMIN_URL)
         admin_login.open()
         admin_login.login_enter_email_and_password('alex+i@zpoken.io', '')
         admin_login.click_tab_key()
@@ -74,7 +75,7 @@ class TestAdminLogin:
 
     @allure.title("Check error message if the user enter invalid password")
     def test_user_use_not_registered_email_invalid_data(self, driver):
-        admin_login = AdminLoginPage(driver, "https://dev-mn-admin.zpoken.dev/login")
+        admin_login = AdminLoginPage(driver, Url.ADMIN_URL)
         admin_login.open()
         admin_login.login_enter_email_and_password('alex+i@zpoken.io', '147852')
         admin_login.login_click_sign_in_button()

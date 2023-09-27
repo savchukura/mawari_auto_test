@@ -22,3 +22,22 @@ class Project:
     UPDATE_FILE_TWO = os.path.abspath("../tests/files/file_for_update_two.zip")
 
     NAME_FOR_SEARCH = f"project{random.randint(1, 999)}"
+
+
+class Url:
+    USER_URL = "https://dev-mawari.zpoken.dev/login"
+
+    ADMIN_URL = "https://dev-mn-admin.zpoken.dev/login"
+
+    USER_DEV = "https://dev-mawari.zpoken.dev/login"
+    USER_PROD = "https://mawari.network/login"
+    ADMIN_DEV = "https://dev-mn-admin.zpoken.dev/login"
+    ADMIN_PROD = "https://admin.mawari.network/login"
+
+    def user_url(self, env):
+        url = {"dev": "https://dev-mawari.zpoken.dev/login",
+               "prod": "https://mawari.network/login"}
+
+        print(url[env])
+
+
