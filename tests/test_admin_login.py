@@ -20,7 +20,7 @@ class TestAdminLogin:
         assert get_dashboard_title == "Admin", "Wrong title text"
 
     @allure.title("Check Admin log out use valid data")
-    def test_admin_login_valid_data(self, driver):
+    def test_admin_log_out_valid_data(self, driver):
         admin_login = AdminLoginPage(driver, Url.ADMIN_URL)
         admin_login.open()
         admin_login.login_enter_email_and_password('alex+i@zpoken.io', '12345678')
@@ -44,7 +44,7 @@ class TestAdminLogin:
         assert error_text == "Email not found", "Wrong error message"
 
     @allure.title("Check error message if the user enter valid email without @")
-    def test_user_use_not_registered_email_invalid_data(self, driver):
+    def test_user_use_email_without_at_invalid_data(self, driver):
         admin_login = AdminLoginPage(driver, Url.ADMIN_URL)
         admin_login.open()
         admin_login.login_enter_email_and_password('alex+izpoken.io', '12345678')
@@ -54,7 +54,7 @@ class TestAdminLogin:
         assert error_text == "The email is incorrect", "Wrong error message"
 
     @allure.title("Check error message if the user leave email input empty ")
-    def test_user_use_not_registered_email_invalid_data(self, driver):
+    def test_user_leave_email_input_empty_invalid_data(self, driver):
         admin_login = AdminLoginPage(driver, Url.ADMIN_URL)
         admin_login.open()
         admin_login.login_enter_email_and_password('', '12345678')
@@ -64,7 +64,7 @@ class TestAdminLogin:
         assert error_text == "The field email is required", "Wrong error message"
 
     @allure.title("Check error message if the user leave password input empty ")
-    def test_user_use_not_registered_email_invalid_data(self, driver):
+    def test_user_leave_password_input_empty_invalid_data(self, driver):
         admin_login = AdminLoginPage(driver, Url.ADMIN_URL)
         admin_login.open()
         admin_login.login_enter_email_and_password('alex+i@zpoken.io', '')
@@ -74,7 +74,7 @@ class TestAdminLogin:
         assert error_text == "The field password is required", "Wrong error message"
 
     @allure.title("Check error message if the user enter invalid password")
-    def test_user_use_not_registered_email_invalid_data(self, driver):
+    def test_user_use_invalid_password_invalid_data(self, driver):
         admin_login = AdminLoginPage(driver, Url.ADMIN_URL)
         admin_login.open()
         admin_login.login_enter_email_and_password('alex+i@zpoken.io', '147852')

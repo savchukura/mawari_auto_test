@@ -6,12 +6,12 @@ class Project:
 
     NAME = f"project{random.randint(1, 999)}"
     CATEGORIES = random.choice(["entertainment", "game", "other"])
-    REGIONS = random.choice(["europe", "us", "asia"])
+    REGIONS = random.choice(["europe", "us", "asia", "global"])
     DESCRIPTION = f"description{random.randint(1, 999)}"
 
-    GPU = random.choice(["entry", "lower_mid", "mid", "upper_mid", "high"])
-    CPU = random.choice(["1-4", "5-8", "9-16", "16+"])
-    RAM = random.choice(["8-16", "17-32", "33-64", "64+"])
+    GPU = random.choice(["lower_mid", "mid", "upper_mid", "high"])
+    CPU = random.choice(["5-8", "9-16", "16+"])
+    RAM = random.choice(["17-32", "33-64", "64+"])
 
     FILE = os.path.abspath("../tests/files/test_file.zip")
     TEST_FILE = os.path.abspath("../tests/files/17.zip")
@@ -25,9 +25,9 @@ class Project:
 
 
 class Url:
-    USER_URL = "https://dev-mawari.zpoken.dev/login"
+    USER_URL = "https://mawari.network/login"
 
-    ADMIN_URL = "https://dev-mn-admin.zpoken.dev/login"
+    ADMIN_URL = "https://admin.mawari.network/login"
 
     USER_DEV = "https://dev-mawari.zpoken.dev/login"
     USER_PROD = "https://mawari.network/login"

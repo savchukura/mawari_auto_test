@@ -46,10 +46,14 @@ class LoginPage(BasePage):
     def click_tab_key_on_input(self):
         self.element_is_visible(LoginPageLocators.PASSWORD_INPUT).send_keys(Keys.TAB)
 
+    @allure.step('wait personal button')
+    def wait_user_personal_button(self):
+        self.element_is_visible(UserPersonalPageLocators.USER_PERSONAL)
+
 
 class UserPersonalPage(NextPage):
 
-    @allure.step('Click on personal button button')
+    @allure.step('Click on personal button')
     def click_on_user_personal_button(self):
         self.element_is_visible(UserPersonalPageLocators.USER_PERSONAL).click()
 

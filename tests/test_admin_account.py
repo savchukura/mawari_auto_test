@@ -35,7 +35,7 @@ class TestAdminAccount:
 
             admin_account = AdminAccountPage(driver)
             admin_account.click_on_indicators_button(0)
-            url = driver.current_url.split("/")[-1]
+            url = driver.current_url.split("/")[0]
             assert url == "node_runners", "wrong page"
 
         @allure.title('Check Nodes count')
@@ -151,4 +151,4 @@ class TestAdminAccount:
 
             streams_counts_on_streams_tab = admin_account.count_nodes()
 
-            assert streams_counts_on_dashboard == streams_counts_on_streams_tab, "invalid streams count"
+            assert int(streams_counts_on_dashboard) == streams_counts_on_streams_tab, "invalid streams count"

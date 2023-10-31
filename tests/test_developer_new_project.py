@@ -56,13 +56,16 @@ class TestNewProjectPage:
 
         # top up the User Balance before creating project
         user_page = DeveloperPage(driver)
-        user_page.click_on_tab_button("balances")
+        user_page.click_on_tab_button("wallet")
         balance_page = BalancePage(driver)
         balance_page.click_on_deposit_button()
         deposit_amount = '100'
         balance_page.enter_deposit_amount(deposit_amount)
         time.sleep(1)
         balance_page.click_deposit_button_in_modal()
+        balance_page.stripe("savcukura866@gmail.com", '4242424242424242', '1224', '123', "name surname")
+        balance_page.get_balance_count()
+
         user_page.click_on_tab_button("my projects")
         time.sleep(4)
 

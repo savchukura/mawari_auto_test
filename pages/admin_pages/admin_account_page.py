@@ -18,7 +18,7 @@ class AdminAccountPage(NextPage):
         return dashboard_title_text.text
 
     def get_indicators(self, indicator_count):
-        indicators = self.elements_are_visible(AdminAccountPageLocators.INDICATORS)
+        indicators = self.elements_are_visible(AdminAccountPageLocators.INDICATORS, 30)
         indicator = indicators[indicator_count].text.replace('$', '').replace(',', '')
         return float(indicator)
 

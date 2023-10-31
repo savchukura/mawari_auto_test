@@ -30,9 +30,10 @@ class MyProjectsLocators:
     GAME_CATEGORY = (By.XPATH, "//*[contains(text(), 'Game')]")
     OTHER_CATEGORY = (By.XPATH, "//*[contains(text(), 'Other')]")
 
-    EUROPE_REGION = (By.XPATH, "//div[@class='h2 border-grey hover:bg-lightgrey border-b-[1px] px-[10px] py-[6px]'] //*[contains(text(), 'Europe')]")
-    US_REGION = (By.XPATH, "//div[@class='h2 border-grey hover:bg-lightgrey border-b-[1px] px-[10px] py-[6px]'] //*[contains(text(), 'US')]")
-    ASIA_REGION = (By.XPATH, "//div[@class='h2 border-grey hover:bg-lightgrey border-b-[1px] px-[10px] py-[6px]'] //*[contains(text(), 'Asia')]")
+    EUROPE_REGION = (By.XPATH, "//div[@class='h2 border-grey hover:bg-lightgrey border-b-[1px] px-[10px] py-[6px]'] //*[contains(text(), 'EU (Europe)')]")
+    US_REGION = (By.XPATH, "//div[@class='h2 border-grey hover:bg-lightgrey border-b-[1px] px-[10px] py-[6px]'] //*[contains(text(), 'NA (North America)')]")
+    ASIA_REGION = (By.XPATH, "//div[@class='h2 border-grey hover:bg-lightgrey border-b-[1px] px-[10px] py-[6px]'] //*[contains(text(), 'AS (Asia)')]")
+    GLOBAL_REGION = (By.XPATH, "//div[@class='h2 border-grey hover:bg-lightgrey border-b-[1px] px-[10px] py-[6px]'] //*[contains(text(), 'Global')]")
 
     REGION = (By.CSS_SELECTOR, "div[class='h2 border-grey hover:bg-lightgrey border-b-[1px] px-[10px] py-[6px]']")
 

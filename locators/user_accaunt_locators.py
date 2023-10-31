@@ -58,7 +58,6 @@ class DeveloperLocators:
     MY_PROJECTS_TAB = (By.CSS_SELECTOR, "a[href='/developers/projects']")
     STREAMS_TAB = (By.CSS_SELECTOR, "a[href='/developers/streams']")
     WALLET_TAB = (By.CSS_SELECTOR, "a[href='/developers/wallet']")
-    BALANCES_TAB = (By.CSS_SELECTOR, "a[href='/developers/balances']")
 
     # My Project tab
 

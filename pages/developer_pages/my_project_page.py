@@ -31,26 +31,10 @@ class MyProjectPage(NextPage):
             region_drop[1].click()
             regions = {"europe": MyProjectsLocators.EUROPE_REGION,
                        "us": MyProjectsLocators.US_REGION,
-                       "asia": MyProjectsLocators.ASIA_REGION}
+                       "asia": MyProjectsLocators.ASIA_REGION,
+                       "global": MyProjectsLocators.GLOBAL_REGION}
             self.element_is_visible(regions[region]).click()
-
-        with allure.step('Select Country'):
-            country_drop = self.elements_are_visible(MyProjectsLocators.CATEGORY_DROP)
-            country_drop[2].click()
-            countries = self.elements_are_present(MyProjectsLocators.COUNTRY)
-            #countries_count = len(countries)
-            #country = countries[random.randint(0, countries_count)].click()
-            countries[2].click()
-
-        with allure.step('Select State'):
-            state_drop = self.elements_are_visible(MyProjectsLocators.CATEGORY_DROP)
-            state_drop[3].click()
-            states = self.elements_are_present(MyProjectsLocators.COUNTRY)
-            #states_count = len(states)
-            #self.go_to_element(states[10])
-            #state = states[random.randint(0, states_count - 1)].click()
-            states[1].click()
-
+            time.sleep(1)
         with allure.step('Fill Description'):
             self.element_is_visible(MyProjectsLocators.DESCRIPTION_TEXT_AREA).send_keys(description)
 

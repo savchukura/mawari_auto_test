@@ -43,3 +43,8 @@ class BalancePage(NextPage):
         self.element_is_visible(BalancePageLocators.CARD_HOLDER_NAME_INPUT).send_keys(holder_name)
 
         self.element_is_visible(BalancePageLocators.PAY_BUTTON).click()
+
+    def get_transaction_info(self, inf):
+        transaction_info = self.elements_are_visible(BalancePageLocators.TRANSACTION_INFORMATION)
+        info = transaction_info[inf]
+        return info.text

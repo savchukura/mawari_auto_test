@@ -32,6 +32,54 @@ class TestBalancePage:
 
         assert round(expected_balance_after, 2) == float(balance_after_deposit), "deposit wrong"
 
+    def test_check_description_after_transaction(self, driver):
+        login = LoginPage(driver, Url.USER_URL)
+        login.open()
+        login.log_in("savcukura866@gmail.com", "213456qaZ", "developer")
+        login.click_sign_in_button()
+
+        user_page = DeveloperPage(driver)
+        user_page.click_on_tab_button("wallet")
+
+        balance_page = BalancePage(driver)
+
+        balance_page.click_on_deposit_button()
+
+        balance_page.enter_deposit_amount('50')
+        time.sleep(1)
+        balance_page.click_deposit_button_in_modal()
+        balance_page.stripe("savcukura866@gmail.com", '4242424242424242', '1224', '123', "name surname")
+        balance_page.get_balance_count()
+
+        balance_page.refresh_page_one()
+        time.sleep(1)
+        description = balance_page.get_transaction_info(0)
+        assert "Top up wallet" in description
+
+    def test_check_amount_after_transaction(self, driver):
+        login = LoginPage(driver, Url.USER_URL)
+        login.open()
+        login.log_in("savcukura866@gmail.com", "213456qaZ", "developer")
+        login.click_sign_in_button()
+
+        user_page = DeveloperPage(driver)
+        user_page.click_on_tab_button("wallet")
+
+        balance_page = BalancePage(driver)
+
+        balance_page.click_on_deposit_button()
+
+        balance_page.enter_deposit_amount('60')
+        time.sleep(1)
+        balance_page.click_deposit_button_in_modal()
+        balance_page.stripe("savcukura866@gmail.com", '4242424242424242', '1224', '123', "name surname")
+        balance_page.get_balance_count()
+
+        balance_page.refresh_page_one()
+        time.sleep(1)
+        amount = balance_page.get_transaction_info(1)
+        assert round(amount, 2) == '60'
+
     def test_make_deposit_less_than_one_dollar(self, driver):
         login = LoginPage(driver, Url.USER_URL)
         login.open()

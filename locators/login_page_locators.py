@@ -9,7 +9,7 @@ class LoginPageLocators:
     DEVELOPER_RADIO = (By.CSS_SELECTOR, "div[id='role_developer']")
     VALIDATOR_RADIO = (By.CSS_SELECTOR, "div[id='role_validator']")
     CONFIRM_BUTTON = (By.CSS_SELECTOR, "a[id='confirm-role-btn']")
-    SIGN_IN_BUTTON = (By.CSS_SELECTOR, "button[id='login_Sign_in']")
+    SIGN_IN_BUTTON = (By.CSS_SELECTOR, "button[class='button flex select-none items-center justify-center rounded-[8px] text-center  duration-150 ease-in-out text-white bg-btnDef hover:bg-btnHover active:bg-btnActive disabled:bg-btnDisable h-[44px] w-full']")
     LOG_OUT_BUTTON = (By.CSS_SELECTOR, "button[id='user_logout']")
     ERROR_MESSAGE = (By.CSS_SELECTOR, "div[class='text-red subtitle2 mt-1']")
 

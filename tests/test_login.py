@@ -15,9 +15,10 @@ class TestLogInPage:
         login.open()
         login.log_in("savcukura866@gmail.com", "213456qaZ", "node_runner")
         login.click_sign_in_button()
-        time.sleep(2)
+        login.wait_user_personal_button()
         url = driver.current_url.split("/")[-2]
         login.log_out()
+
         assert url == "runners", "User log in under wrong role"
 
     @allure.title("Login Developer")
@@ -26,7 +27,7 @@ class TestLogInPage:
         login.open()
         login.log_in("yura@zpoken.io", "213456qaZ", "developer")
         login.click_sign_in_button()
-        time.sleep(2)
+        login.wait_user_personal_button()
         url = driver.current_url.split("/")[-2]
         login.log_out()
         assert url == "developers", "User log in under wrong role"
@@ -37,7 +38,7 @@ class TestLogInPage:
         login.open()
         login.log_in("yura@zpoken.io", "213456qaZ", "validator")
         login.click_sign_in_button()
-        time.sleep(2)
+        login.wait_user_personal_button()
         url = driver.current_url.split("/")[-2]
         login.log_out()
         assert url == "validators", "User log in under wrong role"

@@ -62,7 +62,6 @@ class DeveloperPage(NextPage):
     def click_on_tab_button(self, tab):
         tabs = {"my projects": DeveloperLocators.MY_PROJECTS_TAB,
                 "streams": DeveloperLocators.STREAMS_TAB,
-                "wallet": DeveloperLocators.WALLET_TAB,
-                "balances": DeveloperLocators.BALANCES_TAB}
+                "wallet": DeveloperLocators.WALLET_TAB}
 
         self.element_is_visible(tabs[tab]).click()
